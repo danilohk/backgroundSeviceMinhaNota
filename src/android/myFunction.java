@@ -12,8 +12,7 @@ import android.location.LocationManager;
 import android.util.Log;
 
 public class myFunction extends CordovaPlugin {
-    private static final String TAG = "BackgroundGpsPlugin";
-
+    
     public static final String ACTION_START = "start";
     public static final String ACTION_STOP = "stop";
     public static final String ACTION_CONFIGURE = "configure";
@@ -26,7 +25,7 @@ public class myFunction extends CordovaPlugin {
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext){
         Activity activity = this.cordova.getActivity();
         Boolean result = false;
-        updateServiceIntent = new Intent(activity, servico.class);
+        updateServiceIntent = new Intent(activity, myService.class);
 
         if (ACTION_START.equalsIgnoreCase(action) && !isEnabled) {
             result = true;
@@ -36,10 +35,10 @@ public class myFunction extends CordovaPlugin {
             isEnabled = true;
             
         } else if (ACTION_STOP.equalsIgnoreCase(action)) {
-          /*  isEnabled = false;
+            isEnabled = false;
             result = true;
             activity.stopService(updateServiceIntent);
-            callbackContext.success();*/
+            callbackContext.success();
         } else if (ACTION_CONFIGURE.equalsIgnoreCase(action)) {
             result = true;
            

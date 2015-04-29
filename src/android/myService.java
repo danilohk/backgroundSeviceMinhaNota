@@ -15,7 +15,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 
-public class servico extends Service{
+public class myService extends Service{
 	String TAG = "BG SERVICE";
 	
     @Override
@@ -41,7 +41,6 @@ public class servico extends Service{
         if (intent != null) {
         	 handler.postDelayed(loop,60000);
         }
-
         //We want this service to continue running until it is explicitly stopped
         return START_REDELIVER_INTENT;
     }
@@ -59,7 +58,7 @@ public class servico extends Service{
     };
     
     @SuppressLint("NewApi")
-	public void doWork() {
+	public void doWork(){
     		Log.i(TAG, " DO WORK ");
 			 
 			int currentapiVersion = android.os.Build.VERSION.SDK_INT;
@@ -88,7 +87,6 @@ public class servico extends Service{
 			   
 			    mNotificationManager.notify(1, notification.build());
         	}
-    	
     }
     
     @Override

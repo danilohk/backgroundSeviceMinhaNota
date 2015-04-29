@@ -15,10 +15,10 @@
     <!-- android -->
     <platform name="android">
         <source-file src="src/android/myFunction.java" target-dir="src/com/ecola/backgroundService" />
-        <source-file src="src/android/service.java" target-dir="src/com/ecola/backgroundService" />
+        <source-file src="src/android/myService.java" target-dir="src/com/ecola/backgroundService" />
         
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-           <service android:name="com.escola.backgroundService.servico" android:enabled="true" android:process=":remote" />
+           <service android:name="com.escola.backgroundService.myService" android:enabled="true" android:process=":remote" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
