@@ -1,6 +1,5 @@
 package com.escola.backgroundService;
 
-
 import com.escola.EducaOnline.R;
 
 import android.annotation.SuppressLint;
@@ -20,24 +19,18 @@ public class myService extends Service{
 	
     @Override
     public IBinder onBind(Intent intent) {
-       
 		// TODO Auto-generated method stub
-        Log.i(TAG, "OnBind" + intent);
         return null;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i(TAG, "OnCreate");
-
-       
     }
 
     @SuppressLint("NewApi")
 	@Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG, "Received start id " + startId + ": " + intent);
+    public int onStartCommand(Intent intent, int flags, int startId){
         if (intent != null) {
         	 handler.postDelayed(loop,60000);
         }
@@ -46,14 +39,10 @@ public class myService extends Service{
     }
     
     Handler handler = new Handler();
-
     private Runnable loop = new Runnable(){
         public void run(){
-        	Log.i(TAG, " LOOP ");
-             //call the service here
         	doWork();
-             ////// set the interval time here
-             handler.postDelayed(loop,60000);
+            handler.postDelayed(loop,60000);
         }
     };
     
@@ -91,20 +80,11 @@ public class myService extends Service{
     
     @Override
     public boolean stopService(Intent intent) {
-        Log.i(TAG, "- Received stop: " + intent);
-       
         return super.stopService(intent);
     }
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "------------------------------------------ Destroyed Location update Service");
-     
         super.onDestroy();
-    }
-    
-    public void onTaskRemoved(Intent rootIntent) {
-    	Log.i(TAG, "TASK REMOVED");
-    }
-    
+    }    
 }
