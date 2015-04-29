@@ -51,7 +51,7 @@ public class myService extends Service{
     		Log.i(TAG, " DO WORK ");
 			 
 			int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-        	Intent notificationIntent = new Intent(this, com.escola.EducaOnline.MainActivity.class);
+        	Intent notificationIntent = new Intent(this, com.escola.EducaOnline.plugin.class);
 		    PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 		    NotificationManager mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 	         
